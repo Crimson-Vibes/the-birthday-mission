@@ -1,0 +1,185 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Trebuchet MS',sans-serif;
+
+    background:
+    linear-gradient(
+    180deg,
+    #fff8ef,
+    #ffeef8);
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+}
+
+.book{
+
+    width:min(900px,92vw);
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:40px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.12);
+
+    position:relative;
+}
+
+.chapter-tag{
+
+    color:#9d6fa7;
+
+    margin-bottom:15px;
+
+    font-weight:bold;
+}
+
+h1{
+
+    text-align:center;
+
+    color:#7f5d88;
+
+    margin-bottom:30px;
+}
+
+.scene{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:25px;
+}
+
+#bunbun{
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+    145deg,
+    #fff6d8,
+    #ffe4b5);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    animation:
+    floaty 3s ease-in-out infinite;
+}
+
+.bun-face{
+
+    font-size:2rem;
+}
+
+@keyframes floaty{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.speech-box{
+
+    width:100%;
+
+    background:#fffaf2;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    min-height:180px;
+
+    border:2px solid #f4e7d0;
+}
+
+#dialogue{
+
+    line-height:2;
+    font-size:1.15rem;
+}
+
+#choices{
+
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+button{
+
+    border:none;
+
+    background:#ffd7ef;
+
+    padding:14px 22px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+}
+
+#achievement{
+
+    position:fixed;
+
+    top:-100px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:white;
+
+    padding:18px 28px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    transition:.5s;
+}
+
+#achievement.show{
+
+    top:20px;
+}
