@@ -8,19 +8,22 @@ body{
 
     font-family:'Trebuchet MS',sans-serif;
 
-    background:
-    linear-gradient(
-    180deg,
-    #fff8ef,
-    #ffeef8);
-
+  background:
+linear-gradient(
+180deg,
+#fff9f4 0%,
+#fff0f7 50%,
+#f6f0ff 100%);
+    
     min-height:100vh;
 
     display:flex;
     justify-content:center;
     align-items:center;
-
-    overflow:hidden;
+    
+    overflow-x:hidden;
+    overflow-y:auto;
+}
 }
 
 .book{
@@ -113,13 +116,14 @@ h1{
 
     width:100%;
 
+    
     background:#fffaf2;
 
     border-radius:20px;
 
     padding:25px;
 
-    min-height:180px;
+     min-height:220px;
 
     border:2px solid #f4e7d0;
 }
@@ -133,9 +137,14 @@ h1{
 #choices{
 
     display:flex;
+
     gap:12px;
+
     flex-wrap:wrap;
+
     justify-content:center;
+
+    margin-top:10px;
 }
 
 button{
