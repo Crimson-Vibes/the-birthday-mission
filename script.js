@@ -89,19 +89,10 @@ function bunbunThought(text){
     floatingMessage.innerHTML = text;
 }
 
+
 function nextDialogue(){
 
     if(typing) return;
-
-    if(!bgMusicStarted){
-        bgMusic.volume = 0.2;
-
-        bgMusic.play().catch((err) => {
-            console.log("Music blocked:", err);
-        });
-
-        bgMusicStarted = true;
-    }
 
     if(introIndex < intro.length){
         typeText(intro[introIndex]);
@@ -115,7 +106,6 @@ function nextDialogue(){
         `;
     }
 }
-
 function showAchievement(text){
 
     const achievement =
@@ -168,6 +158,14 @@ function createConfetti(){
 }
 
 function startAdventure(){
+
+    if(!bgMusicStarted){
+        bgMusic.volume = 0.2;
+        bgMusic.play().catch((err) => {
+            console.log("Music blocked:", err);
+        });
+        bgMusicStarted = true;
+    }
 
     showAchievement(
     "🏆 Opened The Birthday Adventure"
