@@ -176,7 +176,7 @@ function startAdventure(){
     );
 
     typeText(
-    "Excellent. The carpet appears to be functioning. This is surprising.",
+    "Excellent."<br> " The carpet appears to be functioning." <br> "This is surprising."<br> ,
     ()=>{
 
         choices.innerHTML = `
