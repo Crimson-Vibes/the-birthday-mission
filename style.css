@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Valentine';
+    src: url('fonts/valentine.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Autumn';
+    src: url('fonts/autumn.otf') format('opentype');
+}
+
 *{
     margin:0;
     padding:0;
@@ -5,7 +15,7 @@
 }
 
 body {
-    font-family:'Trebuchet MS', sans-serif;
+    font-family:'Valentine', sans-serif;
 
    background: radial-gradient(
     circle at top,
