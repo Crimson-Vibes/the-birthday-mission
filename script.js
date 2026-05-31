@@ -66,8 +66,12 @@ function typeText(text, callback){
 
     const interval = setInterval(()=>{
 
-        dialogue.innerHTML += text.charAt(i);
-
+       if (text.charAt(i) === "\n") {
+    dialogue.innerHTML += "<br>";
+} else {
+    dialogue.innerHTML += text.charAt(i);
+}
+        
         i++;
 
         if(i >= text.length){
