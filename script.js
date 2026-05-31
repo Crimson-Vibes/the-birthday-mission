@@ -19,7 +19,7 @@ const frogLocations = [
 
 const intro = [
 
-"HELLO.",
+"Hellooooooooo.",
 
 "I have been informed that today is your birthday.",
 
