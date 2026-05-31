@@ -7,14 +7,14 @@
 body {
     font-family:'Trebuchet MS', sans-serif;
 
-    background: linear-gradient(
-        135deg,
-        #F1B8D5,
-        #FD71A3,
-        #87CAE0,
-        #8FE0C1,
-        #CEFFBD
-    );
+   background: radial-gradient(
+    circle at top,
+    #FDB766,
+    #FA8174,
+    #BA5474,
+    #523C5D,
+    #265F67
+);
 
     background-size: 400% 400%;
     animation: dreamyBG 12s ease infinite;
