@@ -17,13 +17,13 @@
 body {
     font-family:'Valentine', sans-serif;
 
-   background: radial-gradient(
-    circle at top,
-    #FDB766,
-    #FA8174,
-    #BA5474,
-    #523C5D,
-    #265F67
+ background: linear-gradient(
+    135deg,
+    #FFF0F6,
+    #FFE4F1,
+    #F3E8FF,
+    #E4F4FF,
+    #FFF7D6
 );
 
     background-size: 400% 400%;
@@ -37,18 +37,20 @@ body {
     overflow-x:hidden;
     overflow-y:auto;
 }
+
 .book{
 
     width:min(900px,92vw);
 
-    background:#FFF8F1;
+    background: #FFFDF8;
 
     border-radius:30px;
 
     padding:40px;
 
     box-shadow:
-    0 20px 50px rgba(0,0,0,.12);
+        0 15px 40px rgba(186,84,116,.12),
+        0 5px 15px rgba(0,0,0,.05);
 
     position:relative;
 }
@@ -66,7 +68,7 @@ h1{
 
     text-align:center;
 
-    color:#7f5d88;
+    color: #BA6C8D;
 
     margin-bottom:30px;
 }
