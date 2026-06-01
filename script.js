@@ -66,7 +66,7 @@ const intro = [
 
 {
     text: "I have decided to ignore that information.",
-    face: "◕⩊~"
+    face: "~⩊~"
 },
 
 {
@@ -228,7 +228,7 @@ function startAdventure(){
     }
 
     showAchievement(
-    "🏆 Opened The Birthday Adventure"
+    "🏆  Passenger Princess "
     );
 
     bunbunThought(
@@ -253,18 +253,19 @@ function chapter1(){
 
     chapterTag.innerHTML =
     "Chapter 1";
-
+ setFace("˵•̀ ᴗ •́ ˵"); 
+    
     bunbunThought(
     "🪄 Passenger inspection in progress..."
     );
 
     typeText(
-    "Before we continue, the carpet requires a quick passenger check."
+    "Before we continue, the carpet requires a quick passenger check. What's your current mood? "
     );
 
     choices.innerHTML = `
 
-    <button onclick="chooseMood('🫠 Existing')">
+    <button onclick="chooseMood('🫠 Just existing')">
     🫠 Existing
     </button>
 
@@ -290,7 +291,7 @@ function chapter1(){
 function chooseMood(mood){
 
     showAchievement(
-    "🏆 Passenger Verified"
+    "🏆 Passenger Alive"
     );
 
     typeText(
@@ -321,6 +322,8 @@ function chapter2(){
     chapterTag.innerHTML =
     "Chapter 2";
 
+    setFace(" ╭ರ_•́ ");
+
     cluesFound = 0;
 
     bunbunThought(
@@ -341,21 +344,21 @@ We must investigate immediately.`
 
     choices.innerHTML = `
 
-    <button onclick="collectClue('Someone remembered today.')">
-    ✨ Clue 1
-    </button>
+   <button onclick="collectClue('Multiple witnesses claim today is somehow important.')">
+✨ Clue 1
+</button>
 
-    <button onclick="collectClue('Someone wished you happy birthday.')">
-    ✨ Clue 2
-    </button>
+<button onclick="collectClue('Several birthday-related messages have been spotted in the area.')">
+✨ Clue 2
+</button>
 
-    <button onclick="collectClue('Someone spent way too much time making a website.')">
-    ✨ Clue 3
-    </button>
+<button onclick="collectClue('A mysterious individual appears to have prepared something special.')">
+✨ Clue 3
+</button>
 
-    <button onclick="collectClue('You are currently playing a birthday adventure.')">
-    ✨ Clue 4
-    </button>
+<button onclick="collectClue('The suspect is currently participating in a birthday-themed adventure.')">
+✨ Clue 4
+</button>
 
     `;
 }
@@ -379,44 +382,66 @@ function collectClue(text){
 function solveMystery(){
 
     showAchievement(
-    "🏆 Birthday Detective"
+    "🏆 Birthday Investigator "
     );
 
     typeText(
 
-`Hmm.
+` Hmm.
 
 Let's review the evidence.
 
-Someone remembered today.
+Multiple witnesses remembered today.
 
-Someone wished you.
+Birthday wishes have been spotted everywhere.
 
-Someone spent way too much time making a whole website.
+Someone may or may not have spent an alarming amount of time creating an entire birthday adventure.
 
-You have clicked through several pages of birthday-related nonsense.
+The suspect is currently standing in the middle of said adventure.
 
 And yet...
 
-You still claim this is just a normal day.
+You continue to insist that today is just another ordinary day.
 
-Interesting defense.
+A fascinating argument.
 
 Unfortunately...
 
-The evidence is overwhelming.
+The evidence is stacking up.
 
-After a thorough investigation...
+After a very serious investigation...
 
-The Birthday Investigation Team has reached a verdict.
+And several completely unnecessary meetings...
 
-The birthday was never missing.
+The Birthday Investigation Team has reached a conclusion.
 
-It appears to have been here all along.
+The birthday was never actually missing.
 
-It was simply hiding beneath a pile of responsibilities, overthinking, and whatever else life decided to throw at you lately.
+It was simply buried.
 
-Case closed.`
+Under responsibilities.
+
+Overthinking.
+
+Tired days.
+
+And all the little things life threw at you lately.
+
+But despite all that...
+
+It was still here.
+
+Waiting for someone to notice it.
+
+Case status:
+
+Birthday located.
+
+Suspect identified.
+
+Celebration recommended.
+
+Case closed. `
 
     );
 
@@ -611,7 +636,7 @@ The frog refuses to answer any of them.`
 function finishCake(){
 
     showAchievement(
-    "🏆 Cake Architect"
+    "🏆 Chaos Baker"
     );
 
     createConfetti();
@@ -814,7 +839,7 @@ function spinWheel(){
     if(reward.includes("Braincell")){
 
         showAchievement(
-        "🏆 Braincell Collector"
+        "🧠 Braincell Owner "
         );
     }
 
@@ -1111,15 +1136,22 @@ function chapter10(){
 
     typeText(
 
-`Look.
-
+`
 I know you weren't planning on celebrating.
+
+In fact, I'm pretty sure you made that very clear at the beginning.
 
 But the carpet insisted.
 
+The investigation insisted.
+
+The gift boxes insisted.
+
+The frogs definitely insisted.
+
 And honestly...
 
-I'm glad it did.
+I'm glad they did.
 
 Mission Status:
 
@@ -1133,15 +1165,77 @@ Mission Status:
 
 ✨ Carpet Slightly Lost
 
-Maybe today wasn't perfect.
+✨ Frog Council Satisfied
 
-But it was yours.
+Before we go, there's just one last thing.
 
-And I'm glad you're here, Shreya.
+Birthdays can feel strange sometimes.
 
-Happy Birthday.
+Some years they're loud and exciting.
 
-- Bunbun 🧸`
+Some years they're quiet.
+
+Some years arrive while you're busy thinking about a hundred other things.
+
+Not because it has to be perfect.
+
+Not because every birthday needs balloons, cake, and a grand celebration.
+
+The people who care about you know it.
+
+The people who remembered today know it.
+
+The person who made this website definitely knows it.
+
+And after spending this entire adventure with you...
+
+I think Bun Bun knows it too.
+
+So whether today was amazing...
+
+Or messy...
+
+Or ordinary...
+
+Or somewhere in between...
+
+I hope you found at least one thing that made you smile.
+
+One thing that made the day feel a little lighter.
+
+One tiny reminder that even on the busiest days, you deserve moments of happiness too.
+
+So here's your final achievement:
+
+🏆 Birthday Successfully Recovered
+
+Congratulations.
+
+You did it.
+
+You completed the adventure.
+
+The carpet can finally retire.
+
+The frogs can return to their mysterious frog business.
+
+And Bun Bun can finally take a nap.
+
+So whether you celebrated a lot, a little, or accidentally got dragged into a magical carpet adventure...
+
+I hope today reminded you that you're appreciated more than you know.
+
+Happy Birthday, Shreya.
+
+Thank you for coming on this very serious, extremely professional, and definitely not ridiculous adventure.
+
+Now go enjoy the rest of your day.
+
+Go eat some cake.
+
+Or at least think about cake.
+
+— BunBun 🐰`
 
     );
 
@@ -1194,7 +1288,7 @@ function unlockFrogCouncil(){
     frogUnlocked = true;
 
     showAchievement(
-    "🏆 Frog Approved"
+    "🐸 Frog Royalty "
     );
 
     setTimeout(()=>{
