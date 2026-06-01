@@ -419,11 +419,7 @@ The birthday was never actually missing.
 
 It was simply buried.
 
-Under responsibilities.
-
-Overthinking.
-
-Tired days.
+Under responsibilities. Overthinking. Tired days.
 
 And all the little things life threw at you lately.
 
