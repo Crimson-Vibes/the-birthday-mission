@@ -26,17 +26,17 @@ const intro = [
 
 {
     text: "Hellooooooooo.",
-    face: "˶◕ᗜ◕˵"
+    face: "˶◕‿◕˵"
 },
 
 {
     text: "I have been informed that today is your birthday.",
-    face: "✧◕‿◕✧"
+    face: "˶ᵔ ᵕ ᵔ˶"
 },
 
 {
     text: "I have also been informed that you don't feel like celebrating.",
-    face: "¬‿¬"
+    face: "╥﹏╥"
 },
 
 {
@@ -46,7 +46,7 @@ const intro = [
 
 {
     text: "That's like walking into a bakery and saying you're not thinking about cake.",
-    face: "◉‿◉"
+    face: "•᷄⌓•᷅ "
 },
 
 {
@@ -61,17 +61,17 @@ const intro = [
 
 {
     text: "So after careful consideration...",
-    face: "( •̀ᴗ•́ )"
+    face: "˵•̀ ᴗ •́ ˵"
 },
 
 {
     text: "I have decided to ignore that information.",
-    face: "ᕕ( ᐛ )ᕗ"
+    face: "｡•̀ᴗ-"
 },
 
 {
     text: "Welcome to your birthday.",
-    face: "✧٩(ˊᗜˋ*)و✧"
+    face: "✦‿✦"
 },
 
 {
@@ -81,12 +81,12 @@ const intro = [
 
 {
     text: "Or don't.",
-    face: " ツ "
+    face: " ◔_◔ "
 },
 
 {
     text: "Either way, we're doing this.",
-    face: "( •̀ω•́ )✧"
+    face: " ✧⩊✧ "
 },
 
 {
@@ -96,8 +96,8 @@ const intro = [
 
 {
     text: "Because our magic carpet is waiting.",
-    face: "૮₍ ˃̵ᴗ˂̵ ₎ა"
-}
+    face: "˃̵ᴗ˂"
+        }
 
 ];
 
