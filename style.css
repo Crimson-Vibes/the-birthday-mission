@@ -55,8 +55,9 @@ body {
         0 15px 40px rgba(186,84,116,.12),
         0 5px 15px rgba(0,0,0,.05);
 
-    position:relative;
-
+     position: relative;
+    margin: 60px auto;
+    
     overflow:visible;
 }
 
@@ -181,17 +182,13 @@ h1{
         transform:translateY(0px);
     }
 }
-.scene{
 
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:25px;
+.scene {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
 }
-
 
 .speech-box{
 
