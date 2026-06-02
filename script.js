@@ -1193,7 +1193,7 @@ setTimeout(() => {
 }
 function revealLetter(){
 
-setFace("neutral");
+setFace(" ¬_¬' ");
 
 typeText(
 
