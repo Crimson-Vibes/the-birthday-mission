@@ -1796,15 +1796,12 @@ As usual.`
 
 function startGame(){
 
-    introIndex = 0;
-
+    introIndex = 1;
     chapterTag.innerHTML = "Prologue";
 
     setFace(intro[0].face);
 
     typeText(intro[0].text);
-
-    introIndex++;
 
     choices.innerHTML = `
     <button onclick="nextDialogue()">
@@ -1812,4 +1809,3 @@ function startGame(){
     </button>
     `;
 }
-
