@@ -113,15 +113,6 @@ function createConfetti() {
     }
 }
 
-function startGame() {
-
-    UI.startScreen.style.display = "none";
-
-    state.introIndex = 0;
-    UI.chapter.innerHTML = "Prologue";
-
-    runIntro();
-}
 
 function runIntro() {
     const line = intro[state.introIndex];
