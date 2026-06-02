@@ -321,6 +321,8 @@ choices.innerHTML = `
    `;
 }
 
+let clueSet = new Set();
+let cluesFound = 0;
 
 function chapter2(){
 
@@ -328,9 +330,7 @@ chapterTag.innerHTML =
 "Chapter 2";
 
 setFace(" ╭ರ_•́ ");
-
-cluesFound = 0;
-
+    
 bunbunThought(
 "🕵️ Investigation mode activated."
 );
@@ -367,9 +367,6 @@ choices.innerHTML = `
 
    `;
 }
-
-let clueSet = new Set();
-cluesFound = 0;
 
 function collectClue(text){
     if (clueSet.has(text)) return;
@@ -927,21 +924,16 @@ Bunbun is now pretending this was intentional.`,
 
 function chapter7(){
 
-chapterTag.innerHTML =
-"Chapter 7";
+chapterTag.innerHTML = "Chapter 7";
 
-bunbunThought(
-    "🫙 Tiny things are suspiciously powerful."
-);
+bunbunThought("🫙 Tiny things are suspiciously powerful.");
 
 typeText(
-
 `Sometimes a whole happy day feels difficult.
 
 So let's aim smaller.
 
 Welcome to the Jar of Tiny Good Things.`
-
 );
 
 choices.innerHTML = `
@@ -949,17 +941,15 @@ choices.innerHTML = `
    🫙 Open Jar
    </button>
 
-    <button onclick="jarFrog()">
-    🐸 Jar Frog
-    </button>
-   `;
+   <button onclick="jarFrog()">
+   🐸 Jar Frog
+   </button>
+`;
 }
 
 function jarFrog(){
 
-findFrog(
-"Jar of Tiny Good Things"
-);
+findFrog("Jar of Tiny Good Things");
 
 typeText(
 `You found a frog inside the jar.
@@ -976,45 +966,30 @@ Judgmentally.`
 );
 
 choices.innerHTML = `
-
    <button onclick="openJar()">
     Proceed anyway
    </button>
-
-   `;
+`;
 }
-    
 
 function openJar(){
 
 const notes = [
-        "Your favourite snack exists somewhere in the world.",
-
+    "Your favourite snack exists somewhere in the world.",
     "Blankets are still real, still warm, still available.",
-
     "Someone, somewhere, is smiling because of you.",
-
     "The sky has been beautiful before—and will be again.",
-
     "Tomorrow hasn’t arrived yet. It’s still being written.",
-
     "You are allowed to rest. No permission needed.",
     "Cake still exists. This is scientifically reassuring.",
-
     "You have already survived your hardest unknown day.",
-
     "Small joys are waiting for you quietly.",
-
     "You are not behind. You are just arriving in your own time."
 ];
 
-const note =
-    notes[
-    Math.floor(Math.random()*notes.length)
-    ];
+const note = notes[Math.floor(Math.random() * notes.length)];
 
-    typeText(
-
+typeText(
 `You try to open the jar.
 
 It refuses.
@@ -1038,19 +1013,21 @@ He pauses.
 He very respectfully smashes the jar. 🫙💥
 
 A tiny note falls out.`
-    );
+);
 
-const btn = document.createElement("button");
-btn.textContent = "📜 Read Note";
-btn.onclick = () => readNote(note);
+setTimeout(() => {
+    const btn = document.createElement("button");
+    btn.textContent = "📜 Read Note";
+    btn.onclick = () => readNote(note);
 
-choices.innerHTML = "";
-choices.appendChild(btn);
+    choices.innerHTML = "";
+    choices.appendChild(btn);
+}, 1200);
+}
 
 function readNote(note){
 
 typeText(
-
 `You unfold the tiny note.
 
 It is soft. Slightly wrinkled. Like it survived something.
@@ -1068,8 +1045,13 @@ choices.innerHTML = `
    <button onclick="chapter8()">
    Continue
    </button>
-   `;
+`;
 }
+// =========================
+// CHAPTER 8
+// Highly classified
+// =========================
+
 
 function chapter8(){
 
@@ -1765,10 +1747,10 @@ choices.innerHTML = `
    `;
 }
 
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("choices").innerHTML = `
         <button onclick="nextDialogue()">
             Continue
         </button>
     `;
-};
+});
