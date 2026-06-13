@@ -3,6 +3,7 @@ const choices = document.getElementById("choices");
 const floatingMessage = document.getElementById("floatingMessage");
 const chapterTag = document.querySelector(".chapter-tag");
 const bgMusic = document.getElementById("bgMusic");
+let chapter8Completed = false;
 let bgMusicStarted = false;
 
 let typing = false;
@@ -1116,16 +1117,25 @@ I only did it because… you’re special. Don’t make me regret saying that.
 Okay.
 Now please stop opening classified things.
 I am running out of files.
-— Bunbun 🐰`
-);
+— Bunbun 🐰`,
+() => {
 
-choices.innerHTML = `
-   <button onclick="chapter9()">
-   Continue
-   </button>
-`;
+chapter8Completed = true;
+
+if (frogsCollected >= 5) {
+    unlockFrogCouncil();
 }
 
+
+    choices.innerHTML = `
+       <button onclick="chapter9()">
+       Continue
+       </button>
+    `;
+}
+);
+
+}
 // =========================
 // CHAPTER 9
 // BIG RED BUTTON
@@ -1275,6 +1285,7 @@ choices.innerHTML = `
    `;
 }
 
+
 function findFrog(location){
 
 frogsCollected++;
@@ -1303,11 +1314,7 @@ frogComment = "The Frog Council knows.";
 bunbunThought(
 `🐸${frogComment}`
 );
-
-if(frogsCollected >= 5){
-
-unlockFrogCouncil();
-}
+    
 }
 
 // =========================
