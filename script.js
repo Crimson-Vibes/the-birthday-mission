@@ -6,16 +6,25 @@ const bgMusic = document.getElementById("bgMusic");
 let bgMusicStarted = false;
 
 let typing = false;
+let typingInterval = null;
+
+let inputLocked = false;
+
+function lockInput() {
+    inputLocked = true;
+    choices.style.pointerEvents = "none";
+    choices.style.opacity = "0.6";
+}
+
+function unlockInput() {
+    inputLocked = false;
+    choices.style.pointerEvents = "auto";
+    choices.style.opacity = "1";
+}
+
+
 let frogsCollected = 0;
 let frogUnlocked = false;
-
-const frogLocations = [
-"Gift Valley",
-"Cake Disaster",
-"Mirror of Truth",
-"Jar of Tiny Good Things",
-"Secret Files"
-];
 
 const bunFace = document.getElementById("bunFace");
 function setFace(face){
@@ -104,13 +113,14 @@ face: "˃̵ᴗ˂"
 let introIndex = 0;
 
 
-let typingInterval = null;
 
 function typeText(text, callback){
 
     if (typing) return;
 
     typing = true;
+    lockInput();   // always block clicks
+
     dialogue.innerHTML = "";
 
     let i = 0;
@@ -136,13 +146,13 @@ function typeText(text, callback){
             typingInterval = null;
 
             typing = false;
+            unlockInput();
 
             if (callback) callback();
         }
 
     }, 25);
 }
-
 
 function bunbunThought(text){
 
@@ -307,9 +317,7 @@ typeText(
 ${mood}
 
 Wonderful.
-
 You have successfully met the minimum requirements for today's adventure.
-
 Which, surprisingly, were very low.`
 
 );
@@ -338,11 +346,8 @@ bunbunThought(
 typeText(
 
 `Uh oh.
-
 I have received reports that your birthday has gone missing.
-
 This is deeply concerning.
-
 We must investigate immediately.`
 
 );
@@ -394,54 +399,32 @@ showAchievement(
 typeText(
 
 ` Hmm.
-
 Let's review the evidence.
-
 Multiple witnesses remembered today.
-
 Birthday wishes have been spotted everywhere.
-
 Someone may or may not have spent an alarming amount of time creating an entire birthday adventure.
-
 The suspect is currently standing in the middle of said adventure.
-
 And yet...
-
 You continue to insist that today is just another ordinary day.
-
 A fascinating argument.
-
 Unfortunately...
-
 The evidence is stacking up.
-
 After a very serious investigation...
-
 And several completely unnecessary meetings...
-
 The Birthday Investigation Team has reached a conclusion.
 
 The birthday was never actually missing.
-
 It was simply buried.
-
 Under responsibilities. Overthinking. Tired days.
-
 And all the little things life threw at you lately.
-
 But despite all that...
-
 It was still here.
-
 Waiting for someone to notice it.
 It was still here. Waiting for someone to notice it.
 
 Case status:
-
 Birthday located.
-
 Suspect identified.
-
 Celebration recommended.
 
 Case closed. `
@@ -468,11 +451,8 @@ bunbunThought(
 typeText(
 
 `Welcome to the Valley of Suspicious Gift Boxes.
-
 Please choose wisely.
-
 Or don't.
-
 They all seem suspicious.`
 
 );
@@ -508,13 +488,9 @@ findFrog(
 typeText(
 
 `You found a frog hiding behind one of the gift boxes.
-
 It claims it was helping organize presents.
-
 The evidence is... inconclusive.
-
 The frog seems very proud of itself regardless.`
-
 );
 
 choices.innerHTML = `
@@ -547,17 +523,11 @@ Math.floor(Math.random()*gifts.length)
 typeText(
 
 `Congratulations.
-
 You received:
-
 ${reward}
-
 Please use it responsibly.
-
 Or irresponsibly.
-
 I am not your supervisor.`
-
 );
 
 choices.innerHTML = `
@@ -618,7 +588,6 @@ findFrog(
 
 typeText(
 `You have chosen to consult the frog.
-
 An interesting decision.
 
 This raises several questions.
@@ -626,13 +595,10 @@ The frog stared into the distance for several seconds.
 Then he offered exactly one piece of advice:
 
 "ribbit."
-
 ...
 
 Thank you, frog.
-
 That was completely unhelpful.
-
 Bunbun has decided to interpret this as approval.`
 
 );
@@ -640,7 +606,6 @@ Bunbun has decided to interpret this as approval.`
 choices.innerHTML = `
 
    <button onclick="finishCake()">
-    Continue Cake Construction
     🐸 Follow The Frog's Wisdom
    </button>
 
@@ -675,7 +640,7 @@ and at least three violations of basic baking principles...
 I think it's perfect.
 After all, birthdays aren't about perfect cakes.
 They're about celebrating wonderful people.
-Now hurry and blow out the candles before the frosting starts doing anything suspicious. 🐰✨`
+Now hurry and blow out the candles before the frosting starts doing anything suspicious.✨`
 
 );
 
@@ -701,21 +666,16 @@ bunbunThought(
 typeText(
 
 `We have arrived at the Mirror of Truth.
-
 Don't worry.
 A very rare magical artifact.
-
 Most mirrors show your reflection.
 
 This one only reveals nice things.
 This one shows the things that make you special.
 
 Which is considerably more useful.
-
 Probably.
-
 Anyway.
-
 Let's see what it has to say.`
 
 );
@@ -761,63 +721,52 @@ choices.innerHTML = `
 function useMirror(){
 
 const truths = [
-"You turn ordinary moments into stories worth remembering.",
-"You care deeply, even when you pretend not to.",
-"You make conversations more fun.",
-"You are stronger than most people realize.",
-"You deserve kindness too.",
-"You make people feel seen and heard.",
-"You have survived 100% of your bad days so far.",
-"You bring your own kind of magic wherever you go.",
-"The world is brighter because you're in it.",
-"There are people whose days are better because you exist."
+"You are someone's favorite person to talk to.",
+"You have made more people smile than you'll ever know.",
+"You make ordinary days better without even trying.",
+"You have a kindness people remember.",
+"You are part of many happy memories.",
+"You make people feel seen, heard, and appreciated.",
+"You bring warmth wherever you go.",
+"You are loved for reasons you don't even realize.",
+"You have made the world brighter simply by being yourself.",
+"The day you were born became one of the luckiest days for the people who know you."
 ];
 
 const truth = truths[Math.floor(Math.random()*truths.length)];
 
 typeText(
 `The Mirror of Truth says:
-
 ...
-
 ...
-
 ...
-
 Loading...
-
 Please wait.
-
 ...
-
 *Bunbun squints suspiciously.*
-
 *Bunbun taps the mirror.*
-
 Nothing.
-
 *Bunbun taps it harder.*
-
 Nothing.
-
 *Bunbun smacks it.*
 
 🪞💥
 
 The mirror flickers to life.
-
 Bunbun nods.
-
 "Yep. That usually works."
 
 The mirror says:
 
-"${truth}"`
+"${truth}"
+
+Bunbun looks at the mirror, then at you.*
+"Yeah… I approve this message." `
 , () => {
 
 choices.innerHTML = `
    <button onclick="chapter6()">
-    Continue ✨
+    Continue the chaos ✨
    </button>
 `;
 });
@@ -880,29 +829,20 @@ function spinWheel(){
         showAchievement("🧠 Braincell Owner ");
     }
 
-    typeText(
-`Bunbun approaches the Wheel of Chaos.
-
-He reads the warning label.
-
-He ignores it.
-
-He spins it anyway. 🎡`,
-    () => {
-
         typeText(
-`The wheel stops.
+`Bunbun approaches the Wheel of Chaos.
+He reads the warning label.
+He ignores it.
+He spins it anyway. 🎡
 
+The wheel stops.
 You received:
 👉 ${reward}
 
 Bunbun squints at it.
-
 "...I don't remember agreeing to this result."
-
 Please do not ask me how this works.
 I barely understand it myself.
-
 Bunbun is now pretending this was intentional.`,
         () => {
 
@@ -912,9 +852,6 @@ Bunbun is now pretending this was intentional.`,
                 </button>
             `;
         });
-
-    });
-
 }
 
 // =========================
@@ -930,9 +867,7 @@ bunbunThought("🫙 Tiny things are suspiciously powerful.");
 
 typeText(
 `Sometimes a whole happy day feels difficult.
-
 So let's aim smaller.
-
 Welcome to the Jar of Tiny Good Things.`
 );
 
@@ -953,15 +888,9 @@ findFrog("Jar of Tiny Good Things");
 
 typeText(
 `You found a frog inside the jar.
-
 It appears to have been living there comfortably.
-
-How it got in there remains unknown.
 The frog refuses to explain rent situation.
-
-The frog refuses further comment.
 Instead, it stares at you.
-
 Judgmentally.`
 );
 
@@ -991,27 +920,17 @@ const note = notes[Math.floor(Math.random() * notes.length)];
 
 typeText(
 `You try to open the jar.
-
 It refuses.
-
 It simply vibrates slightly.
 
 Bunbun stares at it.
-
 "...this is personal now."
-
 He taps it gently.
-
 Nothing happens.
-
 He taps it again.
-
 Still nothing.
-
 He pauses.
-
 He very respectfully smashes the jar. 🫙💥
-
 A tiny note falls out.`
 );
 
@@ -1029,21 +948,16 @@ function readNote(note){
 
 typeText(
 `You unfold the tiny note.
-
 It is soft. Slightly wrinkled. Like it survived something.
-
 It says:
-
 "${note}"
-
 ...
-
 The jar has now accepted defeat.`
 );
 
 choices.innerHTML = `
    <button onclick="chapter8()">
-   Continue
+   Continue the journey
    </button>
 `;
 }
@@ -1064,29 +978,17 @@ typeText(
 `You have discovered the Secret Files.
 
 Bunbun is standing very still.
-
 That is never a good sign.
-
 "...don’t open it."
-
 "...actually, no. I’m serious. Don’t open it."
-
 "...why is it even here?"
-
 Bunbun takes a step closer.
-
 The air feels heavier.
-
 "I am not emotionally prepared for what is inside that file."
-
-"...and I definitely did NOT approve its placement here."
-
+"...and I definitely did not approve its placement here !! "
 He pauses.
-
 Slowly turns his head.
-
 "...I am going to have a very serious conversation with the carpet after this."
-
 "...no. Not a conversation. An argument."`
 
 );
@@ -1109,15 +1011,10 @@ function fileFrog(){
 findFrog("Secret Files");
 
 typeText(
-
 `You ask the frog if you should open the file.
-
 The frog examines the Secret File carefully.
-
 It does not blink.
-
 This is unsettling.
-
 After a long silence...
 the frog shrugs.`
 
@@ -1131,164 +1028,95 @@ choices.innerHTML = `
 
 }
 
-
 function openSecretFile(){
 
 typeText(
 
 `Bunbun suddenly appears in front of the file.
-
 "Wait."
-
 "No."
-
 "No no no no."
-
 He points at it like it personally offended him.
-
 "...why is this still here?"
-
 He pauses.
-
 Looks at you.
-
 "I know what you're going to do."
-
 "You’re going to ignore me."
-
 He sighs.
-
 "...fine."
-
 He steps aside very dramatically.
-
 Like this is your fault.`
-
 );
 
-choices.innerHTML = "";
-
-setTimeout(() => {
-    revealLetter();
-}, 1200);
-
+choices.innerHTML = `
+   <button onclick="revealLetter()">
+   📖 Open File
+   </button>
+`;
 }
+
 function revealLetter(){
 
 setFace(" ¬_¬' ");
 
 typeText(
-
 `You open the file.
-
 Bunbun is not watching.
-
 He is absolutely watching.
-
 He just doesn’t want to admit it.
-
 ...
-
 It says:
 
 "Hey."
-
 So you opened it.
-
 I’m not even surprised.
-
 Honestly, I think I would’ve been more concerned if you *didn’t* open it.
-
 That would’ve been suspicious behaviour.
-
 ...
-
-Anyway.
-
+Anyways.
 I’m not very good at writing serious letters.
-
 So if this starts sounding weird, that’s normal.
-
 It’s me trying my best.
-
 Which is… already a problem.
-
 ...
-
 This whole thing we’ve been doing?
-
-The chaos.
-
-The choices.
-
+The chaos.The choices.
 The frogs that keep showing up where they absolutely should not be.
-
 Yeah.
-
 That wasn’t accidental.
-
 Okay, some of it was accidental.
-
 A *concerning amount* of it was accidental.
-
 But still. It became something.
-
 ...
-
 I think I built all of this thinking it would just be fun.
-
 And it was.
-
 But somewhere in between all the wheels and jars and questionable decisions…
-
 it turned into something else too.
-
 Not big. Not dramatic. Just… something that exists now. Because you went through it.
-
 ...
-
 And I guess that’s the part I didn’t plan for.
-
 That you would actually be here. 
 Reading this.
-
 Not skipping it. Not closing it.
 Just… here.
-
 ...
-
 So yeah.
-
 I’m not going to make this emotional.
-
 That’s not really my style.
-
 But I will say this properly.
-
 Once.
-
 ...
-
 I’m glad you came this far.
-
 That’s it.
 Just that.
 Also… I guess I’m glad I got “appointed” for this task.
-
 I’m never doing this again.
-
 I only did it because… you’re special. Don’t make me regret saying that.
-
 ...
-
 Okay.
-
 Now please stop opening classified things.
-
 I am running out of files.
-
 — Bunbun 🐰`
-
 );
 
 choices.innerHTML = `
@@ -1296,7 +1124,6 @@ choices.innerHTML = `
    Continue
    </button>
 `;
-
 }
 
 // =========================
@@ -1316,29 +1143,21 @@ bunbunThought(
 typeText(
 
 ` This is the Big Red Button.
-
 Please do not press it.
 It has been labeled very clearly.
-
-In large letters.
-
 With emotional emphasis.
-
 Seriously.
-"PLEASE DO NOT PRESS IT."
-
+"Please Do Not Press It."
 ...
-
 Bunbun is watching.
 This is important.
-
-Do not press it.`
+"Don't do it ! "`
 
 );
 
 choices.innerHTML = `
    <button onclick="pressButton()">
-    🔴 PRESS THE BUTTON
+    🔴 PRESS IT [You don't have a choice]
    </button>
    `;
 }
@@ -1350,35 +1169,19 @@ createConfetti();
 
 typeText(
 `...
-
 You pressed it.
-
 Of course you did.
-
 Bunbun is staring at you in silence.
-
 This is worse than shouting.
-
 "...why."
-
-"I specifically said NOT to do that."
-
-"I even used capital letters."
-
-IT LITERALLY SAID NOT TO.
-
-He pauses.
-
-"I EVEN ASKED NICELY."
-
-Takes a breath.
-
+"I specifically said not to do that.."
+It Literally Said Not To !!
+*He pauses*
+"... I Even Asked you Nicely."
+*Takes a breath.*
 Unbelievable.
-
 "... you know what?"
-
-"No."
-
+"Enough.."
 "No more buttons for you."`
 );
 
@@ -1415,7 +1218,6 @@ So I guess… this is where it ends.
 
 And honestly…
 I think that’s okay.
-
 Somewhere along the way, things stopped being just buttons and choices.
 
 The carpet showed up like it had something to say.
@@ -1424,74 +1226,45 @@ The gift boxes appeared even when they weren’t invited.
 And the frogs… well, they were just there. As always.
 
 Somehow, all of it happened anyway.
-
 But before we go, there's just one last thing.
-
 Birthdays can feel strange sometimes.
-
 Some years they're loud and exciting. Some years they're quiet.
-
 Some years arrive while you're busy thinking about a hundred other things.
-
 Not because it has to be perfect.
-
 Not because every birthday needs balloons, cake, and a grand celebration.
-
 The people who care about you know it.
-
 The people who remembered today know it.
-
 The person who made this website definitely knows it.
-
 And after spending this entire adventure with you...
-
-I think Bun Bun knows it too.
+I think you know it too.
 
 So whether today was amazing...
-
 Or messy...
-
 Or ordinary...
-
 Or somewhere in between...
 
 I hope you found at least one thing that made you smile.
-
 One thing that made the day feel a little lighter.
-
 One tiny reminder that even on the busiest days, you deserve moments of happiness too.
 
 So here's your final achievement:
-
 🏆 Birthday Successfully Recovered
-
 Congratulations.
 
-You did it.
-
+You did it,
 You completed the adventure.
-
 The carpet can finally retire.
-
 The frogs can return to their mysterious frog business.
-
 And Bun Bun can finally take a nap.
 
 So whether you celebrated a lot, a little, or accidentally got dragged into a magical carpet adventure...
-
 I hope today reminded you that you're appreciated more than you know.
-
 Happy Birthday, Shreya.
-
 Thank you for coming on this very serious, extremely professional, and definitely not ridiculous adventure.
-
 Now go enjoy the rest of your day.
-
 Go eat some cake.
-
 Or at least think about cake.
-
-— BunBun 🐰`
+— Crimmiii 🐰`
 
 );
 
@@ -1528,7 +1301,7 @@ if(frogsCollected === 5)
 frogComment = "The Frog Council knows.";
 
 bunbunThought(
-`🐸 Frog discovered in ${location}. ${frogComment}`
+`🐸${frogComment}`
 );
 
 if(frogsCollected >= 5){
@@ -1537,186 +1310,162 @@ unlockFrogCouncil();
 }
 }
 
-function unlockFrogCouncil(){
+// =========================
+// FROG COUNCIL SYSTEM
+// =========================
 
-if(frogUnlocked) return;
 
-frogUnlocked = true;
+function unlockFrogCouncil() {
 
-showAchievement(
-"🐸 Frog Royalty "
-);
+    if (frogUnlocked) return;
 
-setTimeout(()=>{
+    frogUnlocked = true;
 
-choices.innerHTML += `
+    showAchievement("🐸 Frog Royalty");
 
-       <button onclick="frogCouncil()">
-       🐸 Visit Frog Council
-       </button>
+    const btn = document.createElement("button");
+    btn.textContent = "🐸 Visit Frog Council";
+    btn.onclick = frogCouncil;
 
-       `;
-
-},1000);
+    choices.appendChild(btn);
 }
 
-function frogCouncil(){
+// =========================
+// FROG COUNCIL ENTRY
+// =========================
 
-chapterTag.innerHTML =
-"Secret Chapter";
+function frogCouncil() {
+
+    chapterTag.innerHTML = "Secret Chapter";
 
     createConfetti();
-      typeText(
 
-`Bunbun is staring at the screen.
-
+    typeText(
+        `Bunbun is staring at the screen.
 "...why is this happening again."
 
 A group of frogs appears.
-
-Not loudly.
-
-Not dramatically.
-
-Just… present.
-
 They are holding something.
-
 It looks like a message.
 
 Bunbun leans closer.
-
-"...I did NOT approve frog delivery services."
-
+"...I did not approve frog delivery services."
 The frogs ignore him.
-
-They begin the message anyway.`
+They wait silently.`,
+        () => {
+            choices.innerHTML = `
+                <button onclick="frogMessage()">
+                    📜 Read Frog Message
+                </button>
+            `;
+        }
     );
-
-  setTimeout(() => {
-
-        frogMessage();
-
-    }, 1200);
 }
 
-function frogMessage(){
+// =========================
+// FROG MESSAGE
+// =========================
 
-typeText(
+function frogMessage() {
 
-`🐸 OFFICIAL FROG MESSAGE:
+    typeText(
+        `🐸 OFFICIAL FROG MESSAGE:
 
 Ribbit.
-
 We have arrived.
-
 Ribbit ribbit.
 
 We are watching your journey from a respectful distance.
-
 (One frog is too close. Please ignore him.)
 
 The Frog Council has been observing you.
----
-
 Quietly.
-Summary of observations:
-
 From various locations.
-• You walked. Ribbit.  
-• You paused for dramatic effect. Ribbit ribbit.  
-• You made questionable decisions (we support this).  
-• One frog tried to press a button. We stopped him. Barely.  
-• Another frog is currently eating the report.  
-
 Mostly ponds.
-Ribbit.
 
 After careful consideration...
----
 
 The council has reached a decision.
+
 We are proud.
 Not because everything made sense.
 But because you did it anyway.
+
 Ribbit ribbit.
+
 This is important frog philosophy.
 We learned it yesterday.
 
 You are officially Frog Approved.
----
 
-This is considered a great honor.
 IMPORTANT ANNOUNCEMENTS:
-
-Please do not let it go to your head.
-Do not trust shiny objects.
-Do not trust frogs who say “trust me”.
-Do not trust Bunbun when he says “this is normal”.
+- Do not trust shiny objects.
+- Do not trust frogs who say “trust me”.
+- Do not trust Bunbun when he says “this is normal”.
 He is lying.
 Ribbit.
 
 FINAL NOTE:
-
 If confusion increases, remain calm.
 Frogs are handling it.
 (We are not handling it.)
+
 Ribbit ribbit ribbit.
 
-— The Frogs 🐸`
-);
-
-choices.innerHTML = `
-    <button onclick="bunbunReact()">
-    🐰 Ask Bunbun why frogs are like this
-    </button>
-    `;
+— The Frogs 🐸`,
+        () => {
+            choices.innerHTML = `
+                <button onclick="bunbunReact()">
+                    🐰 Ask Bunbun why frogs are like this
+                </button>
+            `;
+        }
+    );
 }
 
-function bunbunReact(){
+// =========================
+// BUNBUN REACTION
+// =========================
 
+function bunbunReact() {
 
     typeText(
-
-`Bunbun is staring at the message.
+        `Bunbun is staring at the message.
 
 "...what did I just read."
 
 He scrolls back.
-
 "...why is there ribbiting in official documents."
 
 Pause.
-
 Long pause.
 
 "...who allowed this council to function unsupervised?"
 
 He looks around like the frogs might still be listening.
-
 They probably are.
 
-"...I need a different job."`
+"...I need a different job."`,
+        () => {
+            choices.innerHTML = `
+                <button onclick="returnFromCouncil()">
+                    🐰 Continue
+                </button>
+            `;
+        }
     );
-
-    choices.innerHTML = `
-   <button onclick="returnFromCouncil()">
-    🐰 Continue
-   </button>
-
-   `;
 }
 
+// =========================
+// RETURN SCENE
+// =========================
 
-function returnFromCouncil(){
+function returnFromCouncil() {
 
-typeText(
-
-`The council nods in agreement.
+    typeText(
+        `The council nods in agreement.
 One frog immediately falls off the table.
 This is considered a formal conclusion.
-
----
 
 A tiny frog approaches you.
 It hands you a sticker.
@@ -1724,27 +1473,23 @@ It is slightly damp.
 No one explains why.
 
 It simply says:
----
-
 "Certified Cool Human."
 
 The ink is questionable.
 It may or may not still be moving.
 
----
-
 The meeting has officially concluded.
 A frog whispers something about snacks.
 The council ignores him.
-
-As usual.`
-);
-
-choices.innerHTML = `
-   <button onclick="chapter10()">
-   Continue Adventure
-   </button>
-   `;
+As usual.`,
+        () => {
+            choices.innerHTML = `
+                <button onclick="chapter10()">
+                    Continue Adventure
+                </button>
+            `;
+        }
+    );
 }
 
 document.addEventListener("DOMContentLoaded", () => {
