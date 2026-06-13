@@ -621,6 +621,8 @@ showAchievement(
 
 createConfetti();
 
+setFace("≧◡≦");
+    
 typeText(
 
 `The cake is finished.
@@ -664,6 +666,7 @@ bunbunThought(
 "🪞 Mirrors are weird."
 );
 
+setFace("˃̵ᴗ˂");
 typeText(
 
 `We have arrived at the Mirror of Truth.
@@ -787,6 +790,8 @@ bunbunThought(
     "🎡 This feels... legally unstable."
 );
 
+setFace("◕‿◕");
+    
 typeText(
 
 `Welcome to the Wheel of Chaos.
@@ -830,6 +835,8 @@ function spinWheel(){
         showAchievement("🧠 Braincell Owner ");
     }
 
+setFace("⊙_☉");
+    
         typeText(
 `Bunbun approaches the Wheel of Chaos.
 He reads the warning label.
@@ -866,6 +873,8 @@ chapterTag.innerHTML = "Chapter 7";
 
 bunbunThought("🫙 Tiny things are suspiciously powerful.");
 
+setFace("◡‿◡✿");
+    
 typeText(
 `Sometimes a whole happy day feels difficult.
 So let's aim smaller.
@@ -918,6 +927,7 @@ const notes = [
 ];
 
 const note = notes[Math.floor(Math.random() * notes.length)];
+setFace("•᷄ࡇ•᷅");
 
 typeText(
 `You try to open the jar.
@@ -947,6 +957,8 @@ setTimeout(() => {
 
 function readNote(note){
 
+setFace("¬‿¬");
+    
 typeText(
 `You unfold the tiny note.
 It is soft. Slightly wrinkled. Like it survived something.
@@ -973,7 +985,9 @@ function chapter8(){
 chapterTag.innerHTML = "Chapter 8";
 
 bunbunThought("📁 No. Don’t open that.");
-
+    
+setFace("⊙﹏⊙");
+    
 typeText(
 
 `You have discovered the Secret Files.
@@ -1011,6 +1025,8 @@ function fileFrog(){
 
 findFrog("Secret Files");
 
+setFace("◉_◉");
+    
 typeText(
 `You ask the frog if you should open the file.
 The frog examines the Secret File carefully.
@@ -1122,11 +1138,6 @@ I am running out of files.
 
 chapter8Completed = true;
 
-if (frogsCollected >= 5) {
-    unlockFrogCouncil();
-}
-
-
     choices.innerHTML = `
        <button onclick="chapter9()">
        Continue
@@ -1150,6 +1161,8 @@ bunbunThought(
     "🔴 Do not press it. (This will not go well)"
 );
 
+setFace("ಠ_ಠ");
+    
 typeText(
 
 ` This is the Big Red Button.
@@ -1177,6 +1190,8 @@ function pressButton(){
 showAchievement("🏆 Self-Control? Never Heard Of It ");
 createConfetti();
 
+setFace("ಥ_ಥ");
+    
 typeText(
 `...
 You pressed it.
@@ -1217,6 +1232,8 @@ bunbunThought(
 
 createConfetti();
 
+setFace("˶ᵔ ᵕ ᵔ˶");
+    
 typeText(
 
 `
@@ -1289,6 +1306,7 @@ choices.innerHTML = `
 function findFrog(location){
 
 frogsCollected++;
+checkFrogCouncil();
 
 showAchievement(
 `🐸 Frog Found (${frogsCollected}/5)`
@@ -1321,22 +1339,19 @@ bunbunThought(
 // FROG COUNCIL SYSTEM
 // =========================
 
+function checkFrogCouncil() {
+    if (frogsCollected >= 5 && !frogUnlocked) {
+        frogUnlocked = true;
 
-function unlockFrogCouncil() {
+        showAchievement("🐸 Frog Royalty");
 
-    if (frogUnlocked) return;
+        const btn = document.createElement("button");
+        btn.textContent = "🐸 Visit Frog Council";
+        btn.onclick = frogCouncil;
 
-    frogUnlocked = true;
-
-    showAchievement("🐸 Frog Royalty");
-
-    const btn = document.createElement("button");
-    btn.textContent = "🐸 Visit Frog Council";
-    btn.onclick = frogCouncil;
-
-    choices.appendChild(btn);
+        choices.appendChild(btn);
+    }
 }
-
 // =========================
 // FROG COUNCIL ENTRY
 // =========================
