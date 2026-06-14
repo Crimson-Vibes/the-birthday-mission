@@ -257,6 +257,7 @@ function startHeartsAndBalloons() {
     b.textContent = '🎈';
     b.style.left = Math.random() * 100 + 'vw';
     b.style.fontSize = Math.random() * 30 + 30 + 'px';
+    b.style.animationDuration = Math.random() * 5 + 6 + 's';
     balloonArea.appendChild(b);
     setTimeout(() => b.remove(), 13000);
 
