@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'Valentine';
-    src: url('Valentine.otf');
+    font-family: 'Minya';
+    src: url('Minya.otf');
 }
 
 @font-face {
-    font-family: 'Vibe';
-    src: url('vibe.ttf');
+    font-family: 'Choco';
+    src: url('Choco.ttf');
 }
 *{
     margin:0;
@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family:'Vibe', sans-serif;
+    font-family:'Choco', sans-serif;
 
     background: linear-gradient(
         135deg,
@@ -79,7 +79,7 @@ h1{
 
     color: #BA6C8D;
     
-    font-family:'Valentine', sans-serif;
+    font-family:'Minya', sans-serif;
 
   position: relative;
     z-index: 10;
@@ -373,5 +373,11 @@ button:hover{
         transform: translateY(-120vh) translateX(30px) rotate(360deg);
         opacity: 0;
     }
+}
+
+@keyframes dreamyBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
