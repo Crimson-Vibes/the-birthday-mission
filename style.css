@@ -15,7 +15,7 @@
 
 body {
     font-family:'Choco', sans-serif;
-
+ font-size: 16px;
     background: linear-gradient(
         135deg,
         #FFD4E8,
@@ -51,8 +51,8 @@ body {
 
     border-radius:30px;
 
+ padding-top: 60px;
     padding:40px;
-
     box-shadow:
         0 15px 40px rgba(186,84,116,.12),
         0 5px 15px rgba(0,0,0,.05);
@@ -77,6 +77,7 @@ h1{
 
     text-align:center;
 
+    margin-top: 20px;
     color: #BA6C8D;
     
     font-family:'Minya', sans-serif;
