@@ -51,9 +51,7 @@ body {
     border: 2px solid #F4E3EE;
 
     border-radius:30px;
-
- padding-top: 60px;
-    padding:40px;
+ padding: 60px 40px 40px 40px;
     box-shadow:
         0 15px 40px rgba(186,84,116,.12),
         0 5px 15px rgba(0,0,0,.05);
@@ -89,6 +87,7 @@ h1 {
     height:150px;
      margin-top: 10px;
     border-radius:50% 50% 45% 45%;
+    will-change: transform;
     background:linear-gradient(
         145deg,
         #CEFFBD,
@@ -161,6 +160,8 @@ h1 {
 
     font-size:2.6rem;
 
+    font-family: 'Choco', sans-serif;
+    color: #2f2f2f;
     position:relative;
 
     z-index:5;
@@ -252,7 +253,7 @@ button{
 
 button:hover {
     transform: translateY(-3px);
-    background: #ffc2e5;
+   background: #ffd1ea;
     color: #3e2a33;
 }
 
