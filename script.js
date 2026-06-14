@@ -1138,11 +1138,28 @@ I am running out of files.
 
 chapter8Completed = true;
 
+if (frogUnlocked) {
+
     choices.innerHTML = `
-       <button onclick="chapter9()">
-       Continue
-       </button>
+        <button onclick="chapter9()">
+        Continue
+        </button>
+
+        <button onclick="frogCouncil()">
+        🐸 Visit Frog Council
+        </button>
     `;
+
+}
+else {
+
+    choices.innerHTML = `
+        <button onclick="chapter9()">
+        Continue
+        </button>
+    `;
+
+}
 }
 );
 
