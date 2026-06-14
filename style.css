@@ -73,28 +73,21 @@ body {
     font-weight:bold;
 }
 
-h1{
-
-    text-align:center;
-
-    margin-top: 20px;
+h1 {
+    text-align: center;
+    margin-top: 40px;   /* increase this */
+    margin-bottom: 50px; /* add more gap */
     color: #BA6C8D;
-    
-    font-family:'Minya', sans-serif;
-
-  position: relative;
+    font-family: 'Minya', sans-serif;
+    position: relative;
     z-index: 10;
-    
-    margin-bottom:30px;
 }
 
 #bunbun{
-
     width:170px;
     height:150px;
-
+     margin-top: 10px;
     border-radius:50% 50% 45% 45%;
-
     background:linear-gradient(
         145deg,
         #CEFFBD,
