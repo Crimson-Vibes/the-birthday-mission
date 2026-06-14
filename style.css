@@ -15,6 +15,7 @@
 
 body {
     font-family:'Choco', sans-serif;
+    color: #6b4f5f;
  font-size: 16px;
     background: linear-gradient(
         135deg,
@@ -238,6 +239,10 @@ button{
 
     padding:14px 22px;
 
+    font-family: 'Choco', sans-serif;
+    font-size: 1rem;
+    color: #5a3d4a;
+    
     border-radius:14px;
 
     cursor:pointer;
@@ -245,9 +250,10 @@ button{
     transition:.25s;
 }
 
-button:hover{
-
-    transform:translateY(-3px);
+button:hover {
+    transform: translateY(-3px);
+    background: #ffc2e5;
+    color: #3e2a33;
 }
 
 #achievement {
