@@ -500,7 +500,7 @@ function giftFrog(){
 findFrog(
 "Gift Valley"
 );
-
+setFace("⊙.☉");
 typeText(
 
 `You found a frog hiding behind one of the gift boxes.
@@ -536,6 +536,8 @@ gifts[
 Math.floor(Math.random()*gifts.length)
 ];
 
+setFace("•́⩊•̀");
+    
 typeText(
 
 `Congratulations.
@@ -562,6 +564,8 @@ bunbunThought(
 "🎂 This can only go well."
 );
 
+setFace("˵•́ ᴗ •̀˵");
+    
 typeText(
 
 `To celebrate your birthday being officially recovered… I thought I’d bake you a cake.
@@ -598,6 +602,7 @@ findFrog(
 "Cake Disaster"
 );
 
+setFace("ಠ‿ಠ");
 typeText(
 `You have chosen to consult the frog.
 An interesting decision.
@@ -703,7 +708,7 @@ function mirrorFrog(){
 findFrog(
 "Mirror of Truth"
 );
-
+setFace("ᗜ_ᗜ");
 typeText(
 
 `You found a frog staring into the Mirror of Truth.
@@ -742,6 +747,7 @@ const truths = [
 
 const truth = truths[Math.floor(Math.random()*truths.length)];
 
+setFace("¬‿¬");
 typeText(
 `The Mirror of Truth says:
 ...
@@ -893,10 +899,11 @@ function jarFrog(){
 
 findFrog("Jar of Tiny Good Things");
 
+setFace("ಠಿ_ಠ");
 typeText(
 `You found a frog inside the jar.
 It appears to have been living there comfortably.
-The frog refuses to explain rent situation.
+The frog refuses to explain it's rent situation.
 Instead, it stares at you.
 Judgmentally.`
 );
@@ -1037,7 +1044,7 @@ choices.innerHTML = `
 }
 
 function openSecretFile(){
-
+setFace("°□°");
 typeText(
 `Bunbun suddenly appears in front of the file.
 "Wait."
@@ -1210,8 +1217,7 @@ setFace("˶ᵔ ᵕ ᵔ˶");
     
 typeText(
 
-`
-I know you didn’t think this would turn into anything like this.
+`I know you didn’t think this would turn into anything like this.
 
 But the carpet has finally landed. 
 So I guess… this is where it ends.
@@ -1332,7 +1338,7 @@ function frogCouncil() {
     chapterTag.innerHTML = "Secret Chapter";
 
     createConfetti();
-
+setFace("⊙﹏⊙");
     typeText(
         `Bunbun is staring at the screen.
 "...why is this happening again."
@@ -1360,7 +1366,8 @@ They wait silently.`,
 // =========================
 
 function frogMessage() {
-
+setFace("ಠಿ_ಠ");
+    
     typeText(
         `🐸 OFFICIAL FROG MESSAGE:
 
@@ -1421,7 +1428,7 @@ Ribbit ribbit ribbit.
 // =========================
 
 function bunbunReact() {
-
+setFace("ಠ益ಠ");
     typeText(
         `Bunbun is staring at the message.
 
@@ -1454,7 +1461,7 @@ They probably are.
 // =========================
 
 function returnFromCouncil() {
-
+setFace("-_-");
     typeText(
         `The council nods in agreement.
 One frog immediately falls off the table.
